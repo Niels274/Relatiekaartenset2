@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fase 4 – Verbinden</title>
+  <link rel="stylesheet" href="stijl.css" />
+</head>
+<body>
+
+  <h2>Fase 4 – Verbinden</h2>
+
+  <button onclick="toonKaart()">Trek een kaart</button>
+  <div id="kaart">Klik op de knop om een reflectiekaart te trekken.</div>
+
+  <script>
+    const kaarten = [
+      'Wat zou nu helpen om me opnieuw met jou te verbinden?',
+      'Wil je horen wat ik eigenlijk probeerde te zeggen, los van hoe het eruit kwam?',
+      'Kunnen we even zitten met wat we voelden, zonder meteen te zoeken naar een oplossing?',
+      'Wat waardeer ik aan jou, juist nu ik geraakt ben geweest?',
+      'Wat wil ik je laten weten over mijn behoefte aan nabijheid?',
+      'Als ik terugkijk: waar had ik jou méér kunnen vertrouwen?',
+      'Kan ik je vertellen wat ik lastig vond, zonder dat het een aanval wordt?',
+      'Wat zou voor mij een klein teken van herstel zijn, nu?',
+      'Welke gebaren of woorden helpen mij om me weer veilig te voelen bij jou?',
+      'Wat wil ik nu anders doen, als het ons nog eens overkomt?',
+      'Wat was een klein gebaar van mij dat jou raakte?',
+'Wat wil ik opnieuw van jou leren vertrouwen?',
+'Wat kunnen we hiervan meenemen, zodat het ons dichterbij elkaar brengt?',
+'Welke kracht zie ik in jou, juist als het moeilijk is tussen ons?',
+'Als ik kijk met mildheid: wat deden we eigenlijk allebei uit nood?',
+'Wat hebben we nodig om dit af te ronden en weer verder te kunnen?',
+'Wil je me vertellen wat je nu voelt, als je naar me kijkt?',
+'Wat wil ik je beloven of oefenen — niet als voorwaarde, maar als uitnodiging?',
+'Wat helpt mij om jou weer helemaal te zien, voorbij het misverstand?',
+'Hoe kunnen we elkaar herinneren aan verbinding, als het weer spannend wordt?',
+'Wat is één liefdevolle gewoonte die we zouden kunnen starten, juist nu?'
+    ];
+
+    function toonKaart() {
+      const index = Math.floor(Math.random() * kaarten.length);
+      const kaart = kaarten[index];
+      document.getElementById('kaart').innerText = kaart;
+    }
+  </script>
+</body>
+</html>

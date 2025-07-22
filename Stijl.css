@@ -1,0 +1,58 @@
+/* stijl.css */
+
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 650px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background-color: #fdfdfd;
+  color: #222;
+  text-align: center;
+  line-height: 1.6;
+}
+
+button {
+  background-color: #008296;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 130, 150, 0.4);
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto 2rem auto;
+}
+
+button:hover {
+  background-color: #006d75;
+}
+
+#kaart {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+  padding: 2rem 2.5rem;
+  min-height: 220px;
+  text-align: left;
+  color: #333;
+  white-space: pre-wrap;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+h2 {
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #005963;
+}
+
+.reflectie {
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+  color: #555;
+  line-height: 1.6;
+}

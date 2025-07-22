@@ -11,27 +11,7 @@
       max-width: 700px;
       margin: auto;
       background-color: #fdfdfd;
-    }
-
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .nav-button {
-      padding: 0.5rem 1rem;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .nav-button:hover {
-      background-color: #45a049;
+      text-align: center;
     }
 
     button {
@@ -39,53 +19,60 @@
       font-size: 1rem;
       margin-bottom: 2rem;
       cursor: pointer;
-      background-color: #4CAF50;
+      background-color: #008296;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,130,150,0.4);
+      transition: background-color 0.3s ease;
+      display: inline-block;
     }
 
-    .kaart {
+    button:hover {
+      background-color: #006d75;
+    }
+
+    #kaart {
       white-space: pre-wrap;
       line-height: 1.6;
       margin-top: 1rem;
+      text-align: left;
+      color: #333;
+      min-height: 120px;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 7px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
 
-  <div class="nav-buttons">
-    <a href="index.html" class="nav-button">Startpagina</a>
-    <a href="fase1.html" class="nav-button">Fase 1</a>
-    <a href="fase2.html" class="nav-button">Fase 2</a>
-    <a href="fase3.html" class="nav-button">Fase 3</a>
-  </div>
-
   <h2>Fase 2 – Onder de oppervlakte kijken</h2>
   <button onclick="toonKaart()">Trek een kaart</button>
-  <div id="kaart" class="kaart"></div>
+  <div id="kaart">Klik op de knop om een reflectiekaart te trekken.</div>
 
   <script>
     const kaarten = [
-`Had ik het gevoel dat jij toegankelijk voor mij was toen ik je nodig had? (T)`,
+      `Had ik het gevoel dat jij toegankelijk voor mij was toen ik je nodig had? (T)`,
 
-`Had ik het gevoel dat jij echt op mij reageerde toen ik je iets liet merken? (R)`,
+      `Had ik het gevoel dat jij echt op mij reageerde toen ik je iets liet merken? (R)`,
 
-`Had ik het gevoel dat jij betrokken was bij mijn binnenwereld? (B)`,
+      `Had ik het gevoel dat jij betrokken was bij mijn binnenwereld? (B)`,
 
-`Wat verlangde ik eigenlijk echt van jou op dat moment?`,
+      `Wat verlangde ik eigenlijk echt van jou op dat moment?`,
 
-`Waar voelde ik me alleen of niet gezien in dit contact?`,
+      `Waar voelde ik me alleen of niet gezien in dit contact?`,
 
-`Welke betekenis gaf ik aan jouw reactie toen het misliep?`,
+      `Welke betekenis gaf ik aan jouw reactie toen het misliep?`,
 
-`Welk deel van mij voelde zich niet veilig, niet goed genoeg of afgewezen?`,
+      `Welk deel van mij voelde zich niet veilig, niet goed genoeg of afgewezen?`,
 
-`Wat wilde ik beschermen door zoals ik deed?`,
+      `Wat wilde ik beschermen door zoals ik deed?`,
 
-`Waar heb ik jou misschien verkeerd geïnterpreteerd vanuit mijn eigen angst?`,
+      `Waar heb ik jou misschien verkeerd geïnterpreteerd vanuit mijn eigen angst?`,
 
-`Hoe zie ik nu, achteraf, wat jij eigenlijk probeerde?`
+      `Hoe zie ik nu, achteraf, wat jij eigenlijk probeerde?`
     ];
 
     function toonKaart() {

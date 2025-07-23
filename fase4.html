@@ -38,11 +38,25 @@
 'Wat is één liefdevolle gewoonte die we zouden kunnen starten, juist nu?'
     ];
 
-    function toonKaart() {
-      const index = Math.floor(Math.random() * kaarten.length);
-      const kaart = kaarten[index];
-      document.getElementById('kaart').innerText = kaart;
+   // Array om de laatste drie getrokken indexen te onthouden
+  const laatsteIndices = [];
+
+  function toonKaart() {
+    let index;
+
+    do {
+      index = Math.floor(Math.random() * kaarten.length);
+    } while (laatsteIndices.includes(index) && kaarten.length > laatsteIndices.length);
+
+    // Voeg de nieuwe index toe aan de lijst en houd deze maximaal 3 lang
+    laatsteIndices.push(index);
+    if (laatsteIndices.length > 3) {
+      laatsteIndices.shift(); // verwijder oudste index
     }
-  </script>
+
+    const kaart = kaarten[index];
+    document.getElementById('kaart').innerText = kaart;
+  }
+</script>
 </body>
 </html>

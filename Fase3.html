@@ -15,44 +15,38 @@
   <script>
     const kaarten = [
       `Welk oud gevoel of oude situatie werd geraakt in dit conflict?`,
-
       `Waarin lijkt deze situatie op iets dat ik eerder in mijn leven heb meegemaakt?`,
-
       `Welke kant van mij neemt het over als ik me gekwetst voel?`,
-
       `Waarvoor probeer ik mezelf te beschermen als ik fel of teruggetrokken word?`,
-
       `Wat vind ik moeilijk om toe te geven of onder ogen te zien in dit soort momenten?`,
-
       `Wat zou ik eigenlijk willen zeggen over mijn kwetsbaarheid, maar lukt niet altijd?`,
-
       `Wat wil ik leren of oefenen in dit soort situaties?`,
-
       `Hoe kan ik mijn reactie beter herkennen, vóór het escaleert?`,
-
       `Wat zou jij kunnen doen om me daarbij te helpen, als ik dat eerlijk zeg?`,
-
       `Als ik mezelf toespreek met mildheid, wat zeg ik dan over dit moment?`
     ];
-// Array om de laatste drie getrokken indexen te onthouden
-  const laatsteIndices = [];
 
-  function toonKaart() {
-    let index;
+    const laatsteIndices = [];
 
-    do {
-      index = Math.floor(Math.random() * kaarten.length);
-    } while (laatsteIndices.includes(index) && kaarten.length > laatsteIndices.length);
+    function toonKaart() {
+      const beschikbareIndices = kaarten
+        .map((_, i) => i)
+        .filter(i => !laatsteIndices.includes(i));
 
-    // Voeg de nieuwe index toe aan de lijst en houd deze maximaal 3 lang
-    laatsteIndices.push(index);
-    if (laatsteIndices.length > 3) {
-      laatsteIndices.shift(); // verwijder oudste index
+      if (beschikbareIndices.length === 0) {
+        laatsteIndices.length = 0; // reset
+        beschikbareIndices.push(...kaarten.map((_, i) => i));
+      }
+
+      const index = beschikbareIndices[Math.floor(Math.random() * beschikbareIndices.length)];
+
+      laatsteIndices.push(index);
+      if (laatsteIndices.length > 3) {
+        laatsteIndices.shift();
+      }
+
+      document.getElementById('kaart').innerText = kaarten[index];
     }
-
-    const kaart = kaarten[index];
-    document.getElementById('kaart').innerText = kaart;
-  }
-</script>
+  </script>
 </body>
 </html>

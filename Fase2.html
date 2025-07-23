@@ -55,44 +55,38 @@
   <script>
     const kaarten = [
       `Had ik het gevoel dat jij toegankelijk voor mij was toen ik je nodig had? (T)`,
-
       `Had ik het gevoel dat jij echt op mij reageerde toen ik je iets liet merken? (R)`,
-
       `Had ik het gevoel dat jij betrokken was bij mijn binnenwereld? (B)`,
-
       `Wat verlangde ik eigenlijk echt van jou op dat moment?`,
-
       `Waar voelde ik me alleen of niet gezien in dit contact?`,
-
       `Welke betekenis gaf ik aan jouw reactie toen het misliep?`,
-
       `Welk deel van mij voelde zich niet veilig, niet goed genoeg of afgewezen?`,
-
       `Wat wilde ik beschermen door zoals ik deed?`,
-
       `Waar heb ik jou misschien verkeerd geïnterpreteerd vanuit mijn eigen angst?`,
-
       `Hoe zie ik nu, achteraf, wat jij eigenlijk probeerde?`
     ];
-// Array om de laatste drie getrokken indexen te onthouden
-  const laatsteIndices = [];
 
-  function toonKaart() {
-    let index;
+    const laatsteIndices = [];
 
-    do {
-      index = Math.floor(Math.random() * kaarten.length);
-    } while (laatsteIndices.includes(index) && kaarten.length > laatsteIndices.length);
+    function toonKaart() {
+      const beschikbareIndices = kaarten
+        .map((_, i) => i)
+        .filter(i => !laatsteIndices.includes(i));
 
-    // Voeg de nieuwe index toe aan de lijst en houd deze maximaal 3 lang
-    laatsteIndices.push(index);
-    if (laatsteIndices.length > 3) {
-      laatsteIndices.shift(); // verwijder oudste index
+      if (beschikbareIndices.length === 0) {
+        laatsteIndices.length = 0; // reset
+        beschikbareIndices.push(...kaarten.map((_, i) => i));
+      }
+
+      const index = beschikbareIndices[Math.floor(Math.random() * beschikbareIndices.length)];
+
+      laatsteIndices.push(index);
+      if (laatsteIndices.length > 3) {
+        laatsteIndices.shift();
+      }
+
+      document.getElementById('kaart').innerText = kaarten[index];
     }
-
-    const kaart = kaarten[index];
-    document.getElementById('kaart').innerText = kaart;
-  }
-</script>
+  </script>
 </body>
 </html>

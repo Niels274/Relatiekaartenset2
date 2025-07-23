@@ -26,37 +26,39 @@
       'Welke gebaren of woorden helpen mij om me weer veilig te voelen bij jou?',
       'Wat wil ik nu anders doen, als het ons nog eens overkomt?',
       'Wat was een klein gebaar van mij dat jou raakte?',
-'Wat wil ik opnieuw van jou leren vertrouwen?',
-'Wat kunnen we hiervan meenemen, zodat het ons dichterbij elkaar brengt?',
-'Welke kracht zie ik in jou, juist als het moeilijk is tussen ons?',
-'Als ik kijk met mildheid: wat deden we eigenlijk allebei uit nood?',
-'Wat hebben we nodig om dit af te ronden en weer verder te kunnen?',
-'Wil je me vertellen wat je nu voelt, als je naar me kijkt?',
-'Wat wil ik je beloven of oefenen — niet als voorwaarde, maar als uitnodiging?',
-'Wat helpt mij om jou weer helemaal te zien, voorbij het misverstand?',
-'Hoe kunnen we elkaar herinneren aan verbinding, als het weer spannend wordt?',
-'Wat is één liefdevolle gewoonte die we zouden kunnen starten, juist nu?'
+      'Wat wil ik opnieuw van jou leren vertrouwen?',
+      'Wat kunnen we hiervan meenemen, zodat het ons dichterbij elkaar brengt?',
+      'Welke kracht zie ik in jou, juist als het moeilijk is tussen ons?',
+      'Als ik kijk met mildheid: wat deden we eigenlijk allebei uit nood?',
+      'Wat hebben we nodig om dit af te ronden en weer verder te kunnen?',
+      'Wil je me vertellen wat je nu voelt, als je naar me kijkt?',
+      'Wat wil ik je beloven of oefenen — niet als voorwaarde, maar als uitnodiging?',
+      'Wat helpt mij om jou weer helemaal te zien, voorbij het misverstand?',
+      'Hoe kunnen we elkaar herinneren aan verbinding, als het weer spannend wordt?',
+      'Wat is één liefdevolle gewoonte die we zouden kunnen starten, juist nu?'
     ];
 
-   // Array om de laatste drie getrokken indexen te onthouden
-  const laatsteIndices = [];
+    const laatsteIndices = [];
 
-  function toonKaart() {
-    let index;
+    function toonKaart() {
+      const beschikbareIndices = kaarten
+        .map((_, i) => i)
+        .filter(i => !laatsteIndices.includes(i));
 
-    do {
-      index = Math.floor(Math.random() * kaarten.length);
-    } while (laatsteIndices.includes(index) && kaarten.length > laatsteIndices.length);
+      if (beschikbareIndices.length === 0) {
+        laatsteIndices.length = 0;
+        beschikbareIndices.push(...kaarten.map((_, i) => i));
+      }
 
-    // Voeg de nieuwe index toe aan de lijst en houd deze maximaal 3 lang
-    laatsteIndices.push(index);
-    if (laatsteIndices.length > 3) {
-      laatsteIndices.shift(); // verwijder oudste index
+      const index = beschikbareIndices[Math.floor(Math.random() * beschikbareIndices.length)];
+
+      laatsteIndices.push(index);
+      if (laatsteIndices.length > 3) {
+        laatsteIndices.shift();
+      }
+
+      document.getElementById('kaart').innerText = kaarten[index];
     }
-
-    const kaart = kaarten[index];
-    document.getElementById('kaart').innerText = kaart;
-  }
-</script>
+  </script>
 </body>
 </html>

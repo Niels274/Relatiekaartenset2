@@ -34,7 +34,7 @@
         .filter(i => !laatsteIndices.includes(i));
 
       if (beschikbareIndices.length === 0) {
-        laatsteIndices.length = 0; // reset
+        laatsteIndices.length = 0;
         beschikbareIndices.push(...kaarten.map((_, i) => i));
       }
 
@@ -48,5 +48,6 @@
       document.getElementById('kaart').innerText = kaarten[index];
     }
   </script>
+
 </body>
 </html>

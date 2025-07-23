@@ -2,50 +2,44 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fase 1 – Terugkijken en vertragen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fase 2 – Onder de oppervlakte kijken</title>
   <link rel="stylesheet" href="stijl.css" />
 </head>
 <body>
 
-  <h2>Fase 1 – Terugkijken en vertragen</h2>
-
-  <button class="button" onclick="toonKaart()">Trek een kaart</button>
-
-  <div id="kaart" class="card">Klik op de knop om een reflectiekaart te trekken.</div>
+  <h2>Fase 2 – Onder de oppervlakte kijken</h2>
+  <button onclick="toonKaart()">Trek een kaart</button>
+  <div id="kaart">Klik op de knop om een reflectiekaart te trekken.</div>
 
   <script>
     const kaarten = [
-      `Wat gebeurde er precies in het moment dat we elkaar kwijtraakten?`,
-      `Wat voelde ik fysiek toen het spannend werd tussen ons?`,
-      `Wanneer merkte ik dat ik dichtsloeg, afstand nam of juist fel werd?`,
-      `Welke woorden of gebaren maakten me gespannen of alert?`,
-      `Wat was voor mij het kantelpunt in dit gesprek?`,
-      `Wat probeerde ik duidelijk te maken — en lukte dat?`,
-      `Wat hoopte ik op dat moment dat jij zou doen of zeggen?`,
-      `Welke neiging kwam het sterkst op: weggaan, uitleggen, aanvallen, pleasen?`,
-      `Als ik toen even had kunnen pauzeren, wat had ik dan gewild dat jij wist?`,
-      `Wat maakte dit moment zo beladen of intens voor mij?`
+      `Had ik het gevoel dat jij toegankelijk voor mij was toen ik je nodig had? (T)`,
+      `Had ik het gevoel dat jij echt op mij reageerde toen ik je iets liet merken? (R)`,
+      `Had ik het gevoel dat jij betrokken was bij mijn binnenwereld? (B)`,
+      `Wat verlangde ik eigenlijk echt van jou op dat moment?`,
+      `Waar voelde ik me alleen of niet gezien in dit contact?`,
+      `Welke betekenis gaf ik aan jouw reactie toen het misliep?`,
+      `Welk deel van mij voelde zich niet veilig, niet goed genoeg of afgewezen?`,
+      `Wat wilde ik beschermen door zoals ik deed?`,
+      `Waar heb ik jou misschien verkeerd geïnterpreteerd vanuit mijn eigen angst?`,
+      `Hoe zie ik nu, achteraf, wat jij eigenlijk probeerde?`
     ];
 
     const laatsteIndices = [];
 
     function toonKaart() {
-      // Genereer lijst van toegestane indices
       const beschikbareIndices = kaarten
         .map((_, i) => i)
         .filter(i => !laatsteIndices.includes(i));
 
-      // Als er geen andere keuze meer is, reset de uitsluiting
       if (beschikbareIndices.length === 0) {
-        laatsteIndices.length = 0; // reset
+        laatsteIndices.length = 0;
         beschikbareIndices.push(...kaarten.map((_, i) => i));
       }
 
-      // Kies een index uit de beschikbare indices
       const index = beschikbareIndices[Math.floor(Math.random() * beschikbareIndices.length)];
 
-      // Bewaar index
       laatsteIndices.push(index);
       if (laatsteIndices.length > 3) {
         laatsteIndices.shift();
@@ -54,6 +48,5 @@
       document.getElementById('kaart').innerText = kaarten[index];
     }
   </script>
-
 </body>
 </html>

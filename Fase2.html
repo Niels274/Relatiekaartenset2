@@ -4,47 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fase 2 – Onder de oppervlakte kijken</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-      background-color: #fdfdfd;
-      text-align: center;
-    }
-
-    button {
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      cursor: pointer;
-      background-color: #008296;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,130,150,0.4);
-      transition: background-color 0.3s ease;
-      display: inline-block;
-    }
-
-    button:hover {
-      background-color: #006d75;
-    }
-
-    #kaart {
-      white-space: pre-wrap;
-      line-height: 1.6;
-      margin-top: 1rem;
-      text-align: left;
-      color: #333;
-      min-height: 120px;
-      padding: 1rem;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 3px 7px rgba(0,0,0,0.1);
-    }
-  </style>
+  <link rel="stylesheet" href="stijl.css" />
 </head>
 <body>
 
@@ -74,7 +34,7 @@
         .filter(i => !laatsteIndices.includes(i));
 
       if (beschikbareIndices.length === 0) {
-        laatsteIndices.length = 0; // reset
+        laatsteIndices.length = 0;
         beschikbareIndices.push(...kaarten.map((_, i) => i));
       }
 
@@ -88,5 +48,6 @@
       document.getElementById('kaart').innerText = kaarten[index];
     }
   </script>
+
 </body>
 </html>

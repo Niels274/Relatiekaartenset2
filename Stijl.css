@@ -1,58 +1,108 @@
-/* stijl.css */
-
+/* Algemeen */
 body {
   font-family: system-ui, sans-serif;
-  max-width: 700px;
+  max-width: 650px;
   margin: 2rem auto;
   padding: 1rem 2rem;
   background-color: #fdfdfd;
   color: #222;
   text-align: center;
-  line-height: 1.6;
+  line-height: 1.6; /* Algemene regelafstand */
 }
 
-h2 {
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  color: #008296;         /* huisstijlkleur */
-  font-size: 1.6rem;
-  text-align: center;
-}
-
+/* Knop */
 button {
   background-color: #008296;
   color: white;
   border: none;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 10px;
+  font-size: 1.3rem;
+  border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 130, 150, 0.4);
   transition: background-color 0.3s ease;
   display: block;
   margin: 0 auto 2rem auto;
-  text-align: center;
 }
 
 button:hover {
   background-color: #006d75;
 }
 
+/* Kaart tekstvak */
 #kaart {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
-  padding: 2rem 2.5rem;
-  min-height: 160px;
+  padding: 2rem 2.5rem; /* Iets meer padding voor ademruimte */
+  min-height: 220px;
   text-align: left;
   color: #333;
-  font-size: 1.15rem;
+  white-space: pre-wrap;
+  font-size: 1.15rem; /* Iets groter voor betere leesbaarheid */
   line-height: 1.7;
-  max-width: 650px;
-  margin: 0 auto;
 }
 
-#kaart p + p {
-  margin-top: 1.4rem;
+/* Vraag */
+h3 {
+  font-weight: 700;
+  margin-top: 0;          /* Geen marge boven vraag */
+  margin-bottom: 1rem;    /* Ruimte na vraag */
+  color: #005963;
+}
+
+/* Reflectievraag */
+.reflectie {
+  font-style: italic;
+  margin-top: 0;          /* Geen marge boven reflectie (voorkomt dubbele ruimte) */
+  margin-bottom: 1.8rem;  /* Ruimere marge na reflectie */
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Citaat */
+.quote {
+  font-style: italic;
+  text-align: center;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Auteur */
+.author {
+  text-align: right;
+  font-style: normal;
+  color: #888;
+  margin-top: 0;
+  margin-bottom: 1.5rem; /* Ruimte onder auteur voor visuele afscheiding */
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 95%;
+  }
+
+  #kaart {
+    padding: 1.2rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #kaart {
+    font-size: 1.2rem;
+    padding: 2.5rem 3rem;
+  }
 }
